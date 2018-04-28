@@ -73,6 +73,7 @@
                 @if (session()->has('user_token'))
                     <a href="{{ url('/home') }}">Home</a>
                     <a href="{{ route('logout') }}">Logout</a>
+                    <a href="{{ route('statistics') }}">Statistics</a>
                 @else
                     <a href="{{ route('login') }}">Login</a>
                     <a href="{{ route('register') }}">Register</a>

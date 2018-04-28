@@ -22,3 +22,10 @@ Route::group(['prefix' => '/auth'], function(){
 	Route::post('/register', 'AuthController@register')->name('register');
 	Route::get('/logout', 'AuthController@logout')->name('logout');
 });
+
+// Route::group(['prefix' => '/profile'], function(){
+// 	Route::get('/statistics', 'Profile@show')->name('statistics');
+// });
+// 
+Route::resource('profile', 'ProfileController')->only(['show', 'edit', 'update']);
+Route::get('/calcuator', 'CalculatorController@index');
