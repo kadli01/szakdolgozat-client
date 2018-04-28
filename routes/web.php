@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => '/auth'], function(){
+	Route::get('/login', 'AuthController@loginForm');
+	Route::post('/login', 'AuthController@login')->name('login');
+	Route::get('/register', 'AuthController@registerForm');
+	Route::post('/register', 'AuthController@register')->name('register');
+	Route::get('/logout', 'AuthController@logout')->name('logout');
+});
