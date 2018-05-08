@@ -26,6 +26,14 @@ Route::group(['prefix' => '/auth'], function(){
 // Route::group(['prefix' => '/profile'], function(){
 // 	Route::get('/statistics', 'Profile@show')->name('statistics');
 // });
-// 
+
 Route::resource('profile', 'ProfileController')->only(['show', 'edit', 'update']);
-Route::get('/calcuator', 'CalculatorController@index');
+
+Route::group(['prefix' => '/calculator'], function(){
+	Route::post('/add', 'CalculatorController@add');
+	Route::get('/{date?}', 'CalculatorController@index')->name('calculator');
+	Route::delete('/{id}', 'CalculatorController@delete');
+});
+
+Route::get('/statistics/{startDate?}/{endDate?}', 'CalculatorController@statistics')->name('statistics');
+Route::post('/statistics', 'CalculatorController@filter')->name('statistics-filter');

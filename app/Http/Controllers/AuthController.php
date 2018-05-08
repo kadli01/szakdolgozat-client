@@ -55,9 +55,9 @@ class AuthController extends Controller
 
     public function logout()
     {
-        $token = session('user_token');
-        $response = Call::get('/auth/logout', ['headers' => ['Authorization' => 'bearer' . $token]]);
-
+        // $token = session('user_token');
+        // $response = Call::get('/auth/logout', ['headers' => ['Authorization' => 'bearer' . $token]]);
+        $response = Call::get('/auth/logout');
         session()->flush();
 
         if ($response->status == 'success') {
