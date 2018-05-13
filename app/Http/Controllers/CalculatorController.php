@@ -23,7 +23,7 @@ class CalculatorController extends Controller
         {
            $categories = $response->data->categories;
     	   $userFoods = collect($response->data->userFoods);
-    	   return view('calculator.index', compact('categories', 'userFoods', 'date')) ;
+    	   return view('calculator.indexv2', compact('categories', 'userFoods', 'date')) ;
     	} else {
             return redirect('/')->with('error', $response->message);
         }

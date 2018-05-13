@@ -3,10 +3,9 @@ $(document).ready(function(){
 	var url = '/calculator/add';
 
 	$(document).on('click', '.add-item', function(e){
-		var category = $(this).val();
+		var itemId = $(this).val();
 		var date = $('input[name="date"]').val();
-		var itemId = $('select[name="' + category + '-items"] option:selected').val();
-		var quantity = $('input[name="' + category + '-quantity"]').val();
+		var quantity = $('input[name="quantity-'+ itemId +'"]').val();
 
 		$.ajaxSetup({
 			headers: {
@@ -21,7 +20,6 @@ $(document).ready(function(){
             itemId: itemId,
             quantity: quantity,
         }
-        console.log(formData);
 
         $.ajax({
         	type: 'post',
@@ -31,14 +29,9 @@ $(document).ready(function(){
 
         	success: function(data){
         		var data = data.data;
-        		var item = '<div id="item-'+ data.userFood +'"  class="d-flex align-items-center">';
-        		item +=	'<p>'+ data.food.name +': '+ quantity +' g</p>';
-        		item += '<button class="delete-item" value="' + data.userFood +'">Delete</button>';
-        		item += '</div>';
-
-        		$('#scrollable-' + category).append(item);
-
         		console.log(data);
+        		var item = '<li id="item-'+ data.userFood +'">' + data.food.name + ':' + quantity + 'g <button class="delete-item" value="' + data.userFood + '">Delete</button></li>';
+        		$('#added-items').append(item);
         	},
 
         	error: function(data){
@@ -63,7 +56,7 @@ $(document).ready(function(){
 			url: '/calculator/'+ itemId,
 
 			success: function(data){
-				$('div #item-' + itemId).remove();
+				$('li[id="item-' + itemId + '"').remove();
 				btn.remove();
 			},
 
