@@ -18,4 +18,5 @@
 			</form>
 		</div>
 	</section>
+	<a href="{{ route('password') }}">Forgot my password</a>
 @endsection

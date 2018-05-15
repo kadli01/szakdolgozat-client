@@ -21,6 +21,13 @@ Route::group(['prefix' => '/auth'], function(){
 	Route::get('/register', 'AuthController@registerForm');
 	Route::post('/register', 'AuthController@register')->name('register');
 	Route::get('/logout', 'AuthController@logout')->name('logout');
+
+	Route::get('/forgot-password', 'AuthController@passwordForm')->name('password');
+	Route::post('/password/mail', 'AuthController@passwordResetMail');
+	Route::get('/forgot-password/{token}', 'AuthController@resetForm');
+	Route::post('/password/reset', 'AuthController@passwordReset');
+
+	Route::get('/verify/{token}', 'AuthController@verifyEmail');
 });
 
 // Route::group(['prefix' => '/profile'], function(){

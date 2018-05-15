@@ -6,7 +6,7 @@
 			<h3>Register</h3>
 			<form method="POST" action="{{ route('register') }}">
 				{{ csrf_field() }}
-
+				<input type="hidden" name="url" value="{{ env('APP_URL') }}">
 				<input type="text" name="first_name" placeholder="First name" class="form-control" value="{{ old('first_name') }}">
 				@if($errors->has('first_name'))
 					<span>{{ $errors->first('first_name') }}</span>
