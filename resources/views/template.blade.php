@@ -22,7 +22,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<!-- Left Side Of Navbar -->
 					<ul class="navbar-nav mr-auto">
-						Nutrition Calculator
+						<a href="/" class="nav-link">Nutrition Calculator</a>
 					</ul>
 
 					<!-- Right Side Of Navbar -->
@@ -72,12 +72,12 @@
 					<span class="d-block text-center">{{ \Session::get('error') }}</span>
 			</div>
 		@endif
+	</div>
 
 		@yield('content')
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 		@yield('jquery')
-	</div>
 <footer>
 	
 </footer>
