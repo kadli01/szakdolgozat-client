@@ -21,4 +21,26 @@ Route::group(['prefix' => '/auth'], function(){
 	Route::get('/register', 'AuthController@registerForm');
 	Route::post('/register', 'AuthController@register')->name('register');
 	Route::get('/logout', 'AuthController@logout')->name('logout');
+
+	Route::get('/forgot-password', 'AuthController@passwordForm')->name('password');
+	Route::post('/password/mail', 'AuthController@passwordResetMail');
+	Route::get('/forgot-password/{token}', 'AuthController@resetForm');
+	Route::post('/password/reset', 'AuthController@passwordReset');
+
+	Route::get('/verify/{token}', 'AuthController@verifyEmail');
 });
+
+// Route::group(['prefix' => '/profile'], function(){
+// 	Route::get('/statistics', 'Profile@show')->name('statistics');
+// });
+
+Route::resource('profile', 'ProfileController')->only(['show', 'edit', 'update']);
+
+Route::group(['prefix' => '/calculator'], function(){
+	Route::post('/add', 'CalculatorController@add');
+	Route::get('/{date?}', 'CalculatorController@index')->name('calculator');
+	Route::delete('/{id}', 'CalculatorController@delete');
+});
+
+Route::get('/statistics/{startDate?}/{endDate?}', 'CalculatorController@statistics')->name('statistics');
+Route::post('/statistics', 'CalculatorController@filter')->name('statistics-filter');

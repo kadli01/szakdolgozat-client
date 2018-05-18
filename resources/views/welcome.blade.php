@@ -68,11 +68,16 @@
         @if(session('success'))
             {{ session('success') }}
         @endif
+        @if(session('error'))
+            {{ session('error') }}
+        @endif
         <div class="flex-center position-ref full-height">
             <div class="top-right links">
                 @if (session()->has('user_token'))
                     <a href="{{ url('/home') }}">Home</a>
+                    <a href="{{ route('calculator') }}">Calculator</a>
                     <a href="{{ route('logout') }}">Logout</a>
+                    {{-- <a href="{{ route('statistics') }}">Statistics</a> --}}
                 @else
                     <a href="{{ route('login') }}">Login</a>
                     <a href="{{ route('register') }}">Register</a>
