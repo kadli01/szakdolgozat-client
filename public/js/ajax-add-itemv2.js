@@ -29,13 +29,26 @@ $(document).ready(function(){
 
         	success: function(data){
         		var data = data.data;
-        		console.log(data);
-        		var item = '<li id="item-'+ data.userFood +'">' + data.food.name + ':' + quantity + 'g <button class="delete-item" value="' + data.userFood + '">Delete</button></li>';
-        		$('#added-items').append(item);
+        		// console.log(data);
+        		// var item = '<li id="item-'+ data.userFood +'">' + data.food.name + ':' + quantity + 'g <button class="delete-item" value="' + data.userFood + '">Delete</button></li>';
+        		var item = '<tr id="item-' + data.userFood + '">';
+        		item += '<td>' + data.food.name + '</td>';
+				item += '<td>' + data.food.energy + '</td>';
+				item += '<td>' + data.food.fat + '</td>';
+				item += '<td>' + data.food.carbohydrate + '</td>';
+				item += '<td>' + data.food.sugar + '</td>';
+				item += '<td>' + data.food.salt + '</td>';
+				item += '<td>' + data.food.fiber + '</td>';
+				item += '<td>' + data.food.protein + '</td>';
+				item += '<td>' + quantity + ' g</td>';
+				item += '<td><button class="delete-item" value="' + data.userFood + '">Delete</button>';
+				item += '</td>';
+				item += '</tr>';
+        		$('#added-items> tbody:last-child').append(item);
         	},
 
         	error: function(data){
-        		console.log(data);
+        		// 3console.log(data);
         	},
         });
 
@@ -44,6 +57,7 @@ $(document).ready(function(){
 	$(document).on('click', '.delete-item', function(e){
 		var btn = $(this);
 		var itemId = $(this).val();
+		var row = $(this).closest('tr');
 
 		$.ajaxSetup({
 			headers: {
@@ -56,12 +70,14 @@ $(document).ready(function(){
 			url: '/calculator/'+ itemId,
 
 			success: function(data){
+				row.remove();
 				$('li[id="item-' + itemId + '"').remove();
+				
 				btn.remove();
 			},
 
 			error: function(data){
-				console.log(data);
+				// console.log(data);
 			},
 		});
 	});
