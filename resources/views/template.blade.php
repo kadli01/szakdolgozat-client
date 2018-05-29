@@ -6,6 +6,8 @@
 
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+	<link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
+	<script type="text/javascript" src="/js/app.js"></script>
 </head>
 <body>
 
@@ -74,9 +76,19 @@
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 		@yield('jquery')
+		<script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
+		<script>
+
+			$(document).ready(function() 
+			{
+				$('.date').datepicker({
+					format: "yyyy-mm-dd"
+				});
+			});
+		</script>
 <footer>
 	
 </footer>
-<script type="text/javascript" src="/js/app.js"></script>
+
 </body>
 </html>

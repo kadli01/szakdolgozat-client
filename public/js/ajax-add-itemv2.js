@@ -32,7 +32,7 @@ $(document).ready(function(){
         		$('#no-items').remove();
         		// var item = '<li id="item-'+ data.userFood +'">' + data.food.name + ':' + quantity + 'g <button class="delete-item" value="' + data.userFood + '">Delete</button></li>';
         		var item = '<tr id="item-' + data.userFood + '">';
-        		item += '<td>' + data.food.name + '</td>';
+        		item += '<td class="name">' + data.food.name + '</td>';
 				item += '<td>' + data.food.energy*quantity/100 + '</td>';
 				item += '<td>' + data.food.protein*quantity/100 + '</td>';
 				item += '<td>' + data.food.fat*quantity/100 + '</td>';
