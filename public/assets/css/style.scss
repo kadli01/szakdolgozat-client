@@ -49,3 +49,9 @@
     visibility: visible;
     opacity: 1;
 }
+thead th {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 10;
+}
