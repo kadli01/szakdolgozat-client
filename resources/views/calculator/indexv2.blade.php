@@ -18,7 +18,7 @@
 				</ul>
 			</div>
 		</div>
-		<div class="col-md-7">
+		<div class="col-md-9">
 			
 			<div class="scrollable" style="height: 400px">
 				<table class="table">
@@ -68,7 +68,7 @@
 			
 	</div>
 		<div class="row justify-content-center">
-		<div class="col-md-7 offset-md-2">
+		<div class="col-md-9 offset-md-2">
 			{{-- <ul id="added-items">
 				@foreach($userFoods as $userFood)
 					<li id="item-{{ $userFood->pivot->id }}">{{ $userFood->name }}: {{ $userFood->pivot->quantity }}g <button class="delete-item" value="{{ $userFood->pivot->id }}">Delete</button></li>
@@ -81,19 +81,25 @@
 					<th colspan="10">Added items</th>
 				</thead>
 				<tbody>
+					@if(count($userFoods) == 0)
+						<tr id="no-items">
+							<td colspan="10" align="center"><h3>There are no items added yet.</h3></td>
+						</tr>
+					@endif
 					@foreach($userFoods as $userFood)
+
 						<tr id="item-{{ $userFood->pivot->id }}">
 							<td>{{ $userFood->name }}</td>
-							<td>{{ $userFood->energy }}</td>
-							<td>{{ $userFood->protein }}</td>
-							<td>{{ $userFood->fat }}</td>
-							<td>{{ $userFood->carbohydrate }}</td>
-							<td>{{ $userFood->sugar }}</td>
-							<td>{{ $userFood->salt }}</td>
-							<td>{{ $userFood->fiber }}</td>
-							<td>{{ $userFood->pivot->quantity }}g</td>
+							<td>{{ (float)$userFood->energy }}</td>
+							<td>{{ (float)$userFood->protein }}</td>
+							<td>{{ (float)$userFood->fat }}</td>
+							<td>{{ (float)$userFood->carbohydrate }}</td>
+							<td>{{ (float)$userFood->sugar }}</td>
+							<td>{{ (float)$userFood->salt }}</td>
+							<td>{{ (float)$userFood->fiber }}</td>
+							<td>{{ (float)$userFood->pivot->quantity }}g</td>
 							<td>
-								<button class="delete-item" value="{{ $userFood->pivot->id }}">Delete</button>
+								<button class="delete-item btn" value="{{ $userFood->pivot->id }}">Delete</button>
 							</td>
 						</tr>
 					@endforeach
@@ -106,6 +112,7 @@
 @endsection
 
 @section('jquery')
+
 <script src="{{ asset('js/ajax-add-itemv2.js') }}"></script>
 <script>
 	$(document).ready(function() {

@@ -29,17 +29,17 @@ $(document).ready(function(){
 
         	success: function(data){
         		var data = data.data;
-        		// console.log(data);
+        		$('#no-items').remove();
         		// var item = '<li id="item-'+ data.userFood +'">' + data.food.name + ':' + quantity + 'g <button class="delete-item" value="' + data.userFood + '">Delete</button></li>';
         		var item = '<tr id="item-' + data.userFood + '">';
         		item += '<td>' + data.food.name + '</td>';
-				item += '<td>' + data.food.energy + '</td>';
-				item += '<td>' + data.food.fat + '</td>';
-				item += '<td>' + data.food.carbohydrate + '</td>';
-				item += '<td>' + data.food.sugar + '</td>';
-				item += '<td>' + data.food.salt + '</td>';
-				item += '<td>' + data.food.fiber + '</td>';
-				item += '<td>' + data.food.protein + '</td>';
+				item += '<td>' + data.food.energy*quantity/100 + '</td>';
+				item += '<td>' + data.food.protein*quantity/100 + '</td>';
+				item += '<td>' + data.food.fat*quantity/100 + '</td>';
+				item += '<td>' + data.food.carbohydrate*quantity/100 + '</td>';
+				item += '<td>' + data.food.sugar*quantity/100 + '</td>';
+				item += '<td>' + data.food.salt*quantity/100 + '</td>';
+				item += '<td>' + data.food.fiber*quantity/100 + '</td>';
 				item += '<td>' + quantity + ' g</td>';
 				item += '<td><button class="delete-item" value="' + data.userFood + '">Delete</button>';
 				item += '</td>';

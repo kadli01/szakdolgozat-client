@@ -24,10 +24,10 @@
 		</form>
 
 	</div>
-<div class="stat" width="100%" height="25%">
+<div class="stat">
 	<canvas id="stat"></canvas>
 </div>
-<div class="categories" width="25%" height="25%">
+<div class="categories">
 	<canvas id="categories"></canvas>
 </div>
 @endsection
