@@ -34,7 +34,7 @@ class AuthController extends Controller
         {
             session(['user_token' => $response->data->token]);
 
-            return redirect('/')->withSuccess($response->message);
+            return redirect(route('calculator'))->withSuccess($response->message);
         }
     }
 

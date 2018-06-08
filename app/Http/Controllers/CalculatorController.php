@@ -91,19 +91,23 @@ class CalculatorController extends Controller
 
     public function filter(Request $request)
     {
-        // $validator = Validator::make($request->all(),
-        // [
-        //     'start_date'   => 'nullable|date_format: "Y-m-d"|required_with:end_date',
-        //     'end_date'     => 'nullable|date_format: "Y-m-d"|after:start_date',
-        // ]);
-        
-        // if($validator->fails())
-        // {
-        //     return redirect(route('statistics'))
-        //                 ->withErrors($validator)
-        //                 ->withInput();
-        // }
+        if ($request->start_date == null) 
+        {
+            $startDate = Carbon::today()->subMonth();
+        }
+        else
+        {
+            $startDate = Carbon::parse($request->start_date);
+        }
 
-        return redirect(route('statistics', ['startDate' => $request->start_date, 'endDate' => $request->end_date]));
+        if ($request->end_date == null) 
+        {
+            $endDate = Carbon::today()->addDay();
+        }
+        else
+        {
+            $endDate = Carbon::parse($request->end_date)->addDay();
+        }
+        return redirect(route('statistics', ['startDate' => $startDate->toDateString(), 'endDate' => $endDate->toDateString()]));
     }
 }

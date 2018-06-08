@@ -32,7 +32,7 @@ $(document).ready(function(){
         		$('#no-items').remove();
         		// var item = '<li id="item-'+ data.userFood +'">' + data.food.name + ':' + quantity + 'g <button class="delete-item" value="' + data.userFood + '">Delete</button></li>';
         		var item = '<tr id="item-' + data.userFood + '">';
-        		item += '<td>' + data.food.name + '</td>';
+        		item += '<td class="name">' + data.food.name + '</td>';
 				item += '<td>' + data.food.energy*quantity/100 + '</td>';
 				item += '<td>' + data.food.protein*quantity/100 + '</td>';
 				item += '<td>' + data.food.fat*quantity/100 + '</td>';
@@ -41,7 +41,7 @@ $(document).ready(function(){
 				item += '<td>' + data.food.salt*quantity/100 + '</td>';
 				item += '<td>' + data.food.fiber*quantity/100 + '</td>';
 				item += '<td>' + quantity + ' g</td>';
-				item += '<td><button class="delete-item" value="' + data.userFood + '">Delete</button>';
+				item += '<td><button class="delete-item btn" value="' + data.userFood + '">Delete</button>';
 				item += '</td>';
 				item += '</tr>';
         		$('#added-items> tbody:last-child').append(item);

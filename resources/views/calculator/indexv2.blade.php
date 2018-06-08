@@ -2,8 +2,21 @@
 @extends('template')
 
 @section('content')
+
 <div align="center">
-	<input type="date" name="date" value="{{ $date }}">
+	<div class="col-md-2">
+		<div style="padding: 25px;">
+				
+			<div class="item d-flex">
+				<a href="{{ route('calculator', ['date' => Carbon\Carbon::parse($date)->subDay()->toDateString() ]) }}" class="btn btn-primary"><<</a>
+			
+					<input class="form-control date" type="text" name="date" value="{{ $date }}">
+
+				<a href="{{ route('calculator', ['date' => Carbon\Carbon::parse($date)->addDay()->toDateString() ]) }}" class="btn btn-primary">>></a>
+			</div>
+		</div>
+	
+	</div>
 </div>
 <div>
 	<div class="row justify-content-center">
@@ -23,8 +36,8 @@
 			<div class="scrollable" style="height: 400px">
 				<table class="table">
 					<thead class="thead-dark">
-						<th>
-							<input type="text" name="keyword" placeholder="name">
+						<th class="name">
+							<input class="form-control" type="text" name="keyword" placeholder="name">
 							<button type="button" id="search-btn" class="btn btn-block">Search</button>
 						</th>
 						<th>Energy (kcal)</th>
@@ -51,7 +64,7 @@
 								<td>{{ $item->fiber }}</td>
 								<td>
 									<div class="input-group-append">
-										<input type="number" name="quantity-{{ $item->id }}" style="max-width: 80px" class="form-control">
+										<input type="number" name="quantity-{{ $item->id }}" style="max-width: 80px" class="form-control" required>
 							 			<span class="input-group-text"> g</span>
 									</div>
 								</td>
@@ -89,7 +102,7 @@
 					@foreach($userFoods as $userFood)
 
 						<tr id="item-{{ $userFood->pivot->id }}">
-							<td>{{ $userFood->name }}</td>
+							<td class="name">{{ $userFood->name }}</td>
 							<td>{{ (float)$userFood->energy }}</td>
 							<td>{{ (float)$userFood->protein }}</td>
 							<td>{{ (float)$userFood->fat }}</td>

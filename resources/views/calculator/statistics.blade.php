@@ -5,17 +5,17 @@
 		<form method="POST" action="{{ route('statistics-filter') }}">
 			{{ csrf_field() }}
 			<div class="col-md-6">
-				<h1>Statisztikák</h1>
+				<h1>Statistics</h1>
 			</div>
 			<div class="col-md-3">
 				<div class="input-group">
 					<span class="input-group-addon" id="sizing-addon2"><i class="fa fa-fw fa-calendar"></i></span>
-					<input class="form-control" type="date" name="start_date" value="{{ $startDate->toDateString() }}">
+					<input class="form-control date" type="text" name="start_date" value="{{ $startDate->toDateString() }}">
 				</div>
 			</div>
 			<div class="col-md-3">
 				<div class="input-group">
-					<input class="form-control" type="date" name="end_date" value="{{ $endDate->subDay()->toDateString() }}">
+					<input class="form-control date" type="text" name="end_date" value="{{ $endDate->subDay()->toDateString() }}">
 					<span class="input-group-btn">
 						<button class="btn btn-primary" type="submit" name="submit" style="position: relative; right: 0px; top: 0px;">Szűrés</button>
 					</span>
@@ -24,11 +24,15 @@
 		</form>
 
 	</div>
-<div class="stat">
-	<canvas id="stat"></canvas>
+<div class="col-md-10 offset-md-1">		
+	<div class="stat chart-container">
+		<canvas id="stat" height="75vw"></canvas>
+	</div>
 </div>
-<div class="categories">
-	<canvas id="categories"></canvas>
+<div class="col-md-6 offset-md-3">	
+	<div class="categories chart-container">
+		<canvas id="categories"></canvas>
+	</div>
 </div>
 @endsection
 
@@ -126,7 +130,7 @@
 							beginAtZero: true
 						}
 					}]
-				}
+				},
 			}
 		});
 
@@ -157,7 +161,7 @@
 							return data['datasets'][0]['label'][tooltipItem['index']] + '%';
 						}
 					},
-				}
+				},
 			}
 		});
 
