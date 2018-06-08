@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Client;
-
+ 
 class Call{
 	
 	public static function get($path, $params = [])
@@ -38,7 +38,7 @@ class Call{
 		}
 		catch (\Exception $e)
 		{
-			// \App::abort(404);
+			\App::abort(404);
 			dd($e);
 		}
 		
@@ -70,7 +70,10 @@ class Call{
 			$params['headers'] = ['Authorization' => 'bearer ' . session('user_token')];
  		}
 
-		// $params['headers'] = $headers;
+ 		if ($params['form_params']) 
+ 		{
+ 			$params['form_params']['api_key'] = $apiKey;
+ 		}
 
 		try
 		{
@@ -86,8 +89,8 @@ class Call{
 		}
 		catch (\Exception $e)
 		{	
-			dd($e);
 			\App::abort(404);
+			dd($e);
 		}
 		
 		return $responseData;

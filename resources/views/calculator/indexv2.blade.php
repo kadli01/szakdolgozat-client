@@ -64,7 +64,7 @@
 								<td>{{ $item->fiber }}</td>
 								<td>
 									<div class="input-group-append">
-										<input type="number" name="quantity-{{ $item->id }}" style="max-width: 80px" class="form-control">
+										<input type="number" name="quantity-{{ $item->id }}" style="max-width: 80px" class="form-control" required>
 							 			<span class="input-group-text"> g</span>
 									</div>
 								</td>

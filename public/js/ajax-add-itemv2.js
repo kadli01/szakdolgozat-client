@@ -41,7 +41,7 @@ $(document).ready(function(){
 				item += '<td>' + data.food.salt*quantity/100 + '</td>';
 				item += '<td>' + data.food.fiber*quantity/100 + '</td>';
 				item += '<td>' + quantity + ' g</td>';
-				item += '<td><button class="delete-item" value="' + data.userFood + '">Delete</button>';
+				item += '<td><button class="delete-item btn" value="' + data.userFood + '">Delete</button>';
 				item += '</td>';
 				item += '</tr>';
         		$('#added-items> tbody:last-child').append(item);
