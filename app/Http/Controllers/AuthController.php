@@ -11,7 +11,7 @@ class AuthController extends Controller
     public function loginForm()
     {
     	if (session('user_token')) {
-    		return redirect('/');
+    		return redirect(route('calculator'));
     	}
     	return view('auth.login');
     }
@@ -42,7 +42,7 @@ class AuthController extends Controller
     public function registerForm()
     {
         if (session('user_token')) {
-            return redirect('/');
+            return redirect(route('calculator'));
         }
         return view('auth.register');
     }
@@ -62,7 +62,7 @@ class AuthController extends Controller
         {
             // session(['user_token' => $response->data->user_token]);
 
-            return redirect('/')->withSuccess($response->message);
+            return redirect(route('login'))->withSuccess($response->message);
         }
     }
 
@@ -74,9 +74,9 @@ class AuthController extends Controller
         session()->flush();
 
         if ($response->status == 'success') {
-            return redirect('/')->withSuccess($response->message);
+            return redirect(route('login'))->withSuccess($response->message);
         } else {
-            return redirect('/')->with('error', $response->message);
+            return redirect(route('login'))->with('error', $response->message);
         }
     }
 
@@ -98,7 +98,7 @@ class AuthController extends Controller
         }
         elseif($response->status == 'success')
         {
-            return redirect('/')->withSuccess($response->message);
+            return redirect(route('login'))->withSuccess($response->message);
         }
     }
 
@@ -120,7 +120,7 @@ class AuthController extends Controller
         }
         elseif($response->status == 'success')
         {
-            return redirect('/')->withSuccess($response->message);
+            return redirect(route('login'))->withSuccess($response->message);
         }   
     }
 
@@ -130,9 +130,9 @@ class AuthController extends Controller
 
         if ($response->status == 'success') 
         {
-            return redirect('/')->withSuccess($response->message);
+            return redirect(route('login'))->withSuccess($response->message);
         } else {
-            return redirect('/')->withError($response->message);
+            return redirect(route('login'))->withError($response->message);
         }
     }
 }

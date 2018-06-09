@@ -17,7 +17,7 @@
 				<div class="input-group">
 					<input class="form-control date" type="text" name="end_date" value="{{ $endDate->subDay()->toDateString() }}">
 					<span class="input-group-btn">
-						<button class="btn btn-primary" type="submit" name="submit" style="position: relative; right: 0px; top: 0px;">Szűrés</button>
+						<button class="btn btn-primary" type="submit" name="submit" style="position: relative; right: 0px; top: 0px;">Filter</button>
 					</span>
 				</div>
 			</div>

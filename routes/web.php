@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('login'));
 });
 
 Route::group(['prefix' => '/auth'], function(){
@@ -30,9 +30,6 @@ Route::group(['prefix' => '/auth'], function(){
 	Route::get('/verify/{token}', 'AuthController@verifyEmail');
 });
 
-// Route::group(['prefix' => '/profile'], function(){
-// 	Route::get('/statistics', 'Profile@show')->name('statistics');
-// });
 
 Route::resource('profile', 'ProfileController')->only(['show', 'edit', 'update']);
 

@@ -64,7 +64,7 @@
 								<td>{{ $item->fiber }}</td>
 								<td>
 									<div class="input-group-append">
-										<input type="number" name="quantity-{{ $item->id }}" style="max-width: 80px" class="form-control" required>
+										<input type="text" name="quantity-{{ $item->id }}" style="max-width: 80px" class="form-control" required >
 							 			<span class="input-group-text"> g</span>
 									</div>
 								</td>
@@ -174,6 +174,16 @@
 					$(this).first().attr('class', '');
 				});
 			}
+		});
+
+		$('input[name^="quantity"]').unbind('keyup input change keypress paste').bind('keyup input change keypress paste' ,function() 
+		{
+			var value = $(this).val().replace(/[^0-9.]/g, "");
+			$(this).val(value);
+
+		    if($(this).val().length >= 4) {
+		    	$(this).val($(this).val().slice(0, 4));
+		    }
 		});
 	});
 </script>
