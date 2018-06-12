@@ -56,9 +56,6 @@ thead th {
     z-index: 10;
 }
 
-// td {
-//     max-width: 100px;
-// }
 
 th{
     width: 9%;
@@ -70,6 +67,10 @@ th.name {
 
 td{
     width: 9%;
+}
+
+td.input{
+    width: 11%;
 }
 
 td.name {

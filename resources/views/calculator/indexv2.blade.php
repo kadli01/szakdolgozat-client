@@ -4,7 +4,7 @@
 @section('content')
 
 <div align="center">
-	<div class="col-md-2">
+	<div class="col-md-3">
 		<div style="padding: 25px;">
 				
 			<div class="item d-flex">
@@ -62,7 +62,7 @@
 								<td>{{ $item->sugar }}</td>
 								<td>{{ $item->salt }}</td>
 								<td>{{ $item->fiber }}</td>
-								<td>
+								<td class="input">
 									<div class="input-group-append">
 										<input type="text" name="quantity-{{ $item->id }}" style="max-width: 80px" class="form-control" required >
 							 			<span class="input-group-text"> g</span>

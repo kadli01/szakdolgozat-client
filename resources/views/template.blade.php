@@ -54,15 +54,15 @@
 	<div>
 		@if(\Session::has('success'))
 			<div class="alert alert-success alert-dissmissible fade show" role="alert">
-				<div class="alert-inner">
+				<div class="alert-inner" align="center">
 					{{ \Session::get('success') }}
+					<button type="button" class="close" data-dismiss="alert" arial-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
-				<button type="button" class="close" data-dismiss="alert" arial-label="Close">
-					<span aria-hidden="true">&limes;</span>
-				</button>
 			</div>
 		@endif
-	<h1>{{\Session::get('error')}}</h1>
+
 		@if(\Session::has('error'))
 
 			<div class="alert alert-danger alert-dissmissible error" role="alert">	
