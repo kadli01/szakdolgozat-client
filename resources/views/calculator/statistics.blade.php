@@ -1,38 +1,54 @@
 @extends('template')
 
 @section('content')
-<div class="dashboard-header">
+<div class="dashboard-header" style="padding-top: 15px;">
 		<form method="POST" action="{{ route('statistics-filter') }}">
 			{{ csrf_field() }}
-			<div class="col-md-6">
-				<h1>Statistics</h1>
-			</div>
-			<div class="col-md-3">
-				<div class="input-group">
-					<span class="input-group-addon" id="sizing-addon2"><i class="fa fa-fw fa-calendar"></i></span>
-					<input class="form-control date" type="text" name="start_date" value="{{ $startDate->toDateString() }}">
+			<div class="row">
+				<div class="col-md-2 offset-md-2">
+					<h1>Statistics</h1>
 				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="input-group">
-					<input class="form-control date" type="text" name="end_date" value="{{ $endDate->subDay()->toDateString() }}">
-					<span class="input-group-btn">
-						<button class="btn btn-primary" type="submit" name="submit" style="position: relative; right: 0px; top: 0px;">Filter</button>
-					</span>
-				</div>
+
+				
+					<div class="col-md-2 offset-md-2">
+						<div class="input-group">
+							<span class="input-group-addon" id="sizing-addon2"><i class="fa fa-fw fa-calendar"></i></span>
+							<input class="form-control date" type="text" name="start_date" value="{{ $startDate->toDateString() }}">
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="input-group">
+							<input class="form-control date" type="text" name="end_date" value="{{ $endDate->subDay()->toDateString() }}">
+							<span class="input-group-btn">
+								<button class="btn btn-primary" type="submit" name="submit" style="position: relative; right: 0px; top: 0px;">Filter</button>
+							</span>
+						</div>
+					</div>
+
 			</div>
 		</form>
 
 	</div>
 <div class="col-md-10 offset-md-1">		
+<div class="card">
+<div class="card-body">
 	<div class="stat chart-container">
 		<canvas id="stat" height="75vw"></canvas>
 	</div>
 </div>
-<div class="col-md-6 offset-md-3">	
+</div>
+</div>
+<div class="col-md-10 offset-md-1" style="padding-top: 15px;">	
+	<div class="col-md-2 offset-md-1">
+		<h1>Categories</h1>
+	</div>
+	<div class="card">
+		<div class="card-body">
 	<div class="categories chart-container">
 		<canvas id="categories"></canvas>
 	</div>
+</div>
+</div>
 </div>
 @endsection
 
