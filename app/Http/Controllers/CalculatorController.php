@@ -73,7 +73,7 @@ class CalculatorController extends Controller
         }
         else
         {
-            $endDate = Carbon::parse($endDate)->addDay();
+            $endDate = Carbon::parse($endDate);
         }
 
         $response = Call::post('/calculator/statistics', ['form_params' => ['startDate' => $startDate->toDateString(), 'endDate' => $endDate->toDateString()]]);
@@ -102,11 +102,11 @@ class CalculatorController extends Controller
 
         if ($request->end_date == null) 
         {
-            $endDate = Carbon::today()->addDay();
+            $endDate = Carbon::today();
         }
         else
         {
-            $endDate = Carbon::parse($request->end_date)->addDay();
+            $endDate = Carbon::parse($request->end_date);
         }
         return redirect(route('statistics', ['startDate' => $startDate->toDateString(), 'endDate' => $endDate->toDateString()]));
     }
