@@ -18,8 +18,9 @@
 	
 	</div>
 </div>
-<div>
-	<div class="row justify-content-center">
+<div class="container">
+	<div class="justify-content-center">
+	<div class="row"> 
 		<div class="col-md-2">
 			
 			<div id="categories" class="scrollable" style="height: 400px">
@@ -31,7 +32,7 @@
 				</ul>
 			</div>
 		</div>
-		<div class="col-md-9">
+		<div class="col-md-10">
 			
 			<div class="scrollable" style="height: 400px">
 				<table class="table">
@@ -80,8 +81,9 @@
 		</div>
 			
 	</div>
-		<div class="row justify-content-center">
-		<div class="col-md-9 offset-md-2">
+		{{-- <div class="row justify-content-center"> --}}
+			<div class="row">
+		<div class="col-md-10 offset-md-2">
 			{{-- <ul id="added-items">
 				@foreach($userFoods as $userFood)
 					<li id="item-{{ $userFood->pivot->id }}">{{ $userFood->name }}: {{ $userFood->pivot->quantity }}g <button class="delete-item" value="{{ $userFood->pivot->id }}">Delete</button></li>
@@ -117,9 +119,10 @@
 						</tr>
 					@endforeach
 				</tbody>
-		</div>
 			</table>
 		</div>
+		</div>
+	</div>
 	</div>
 <meta name="_token" content="{!! csrf_token() !!}" />
 @endsection
