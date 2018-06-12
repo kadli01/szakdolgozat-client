@@ -5,7 +5,7 @@
 	<title>Nutrition Calcuator</title>
 
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
-	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/style.css?ver=1.0">
 	<link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
 	<script type="text/javascript" src="/js/app.js"></script>
 </head>
