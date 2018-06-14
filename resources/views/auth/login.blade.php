@@ -15,14 +15,14 @@
 								<div class="form-group">
 									<input type="text" name="email" placeholder="E-mail address" class="form-control">
 									@if($errors->has('email'))
-										<span>{{ $errors->first('email') }}</span>
+										<span class="error-message">{{ $errors->first('email') }}</span>
 									@endif
 								</div>
 
 								<div class="form-group">
 									<input type="password" name="password" placeholder="Password" class="form-control">
 									@if($errors->has('password'))
-										<span>{{ $errors->first('password') }}</span>
+										<span class="error-message">{{ $errors->first('password') }}</span>
 									@endif
 								</div>
 

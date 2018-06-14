@@ -17,7 +17,7 @@
 									<label>First name</label>
 									<input type="text" name="first_name" placeholder="First name" class="form-control" value="{{ old('first_name') }}">
 									@if($errors->has('first_name'))
-										<span>{{ $errors->first('first_name') }}</span>
+										<span class="error-message">{{ $errors->first('first_name') }}</span>
 									@endif
 								</div>
 
@@ -25,7 +25,7 @@
 									<label>Last name</label>
 									<input type="text" name="last_name" placeholder="Last name" class="form-control" value="{{ old('last_name') }}">
 									@if($errors->has('last_name'))
-										<span>{{ $errors->first('last_name') }}</span>
+										<span class="error-message">{{ $errors->first('last_name') }}</span>
 									@endif
 								</div>
 
@@ -88,7 +88,7 @@
 									<label>E-mail address</label>
 									<input type="text" name="email" placeholder="E-mail address" class="form-control" value="{{ old('email') }}">
 									@if($errors->has('email'))
-										<span>{{ $errors->first('email') }}</span>
+										<span class="error-message">{{ $errors->first('email') }}</span>
 									@endif
 								</div>
 
@@ -96,7 +96,7 @@
 									<label>Password</label>							
 									<input type="password" name="password" placeholder="Password" class="form-control">
 									@if($errors->has('password'))
-										<span>{{ $errors->first('password') }}</span>
+										<span class="error-message">{{ $errors->first('password') }}</span>
 									@endif
 								</div>
 
@@ -104,7 +104,7 @@
 									<label>Password confirmation</label>		
 									<input type="password" name="password_confirmation" placeholder="Password confirmation" class="form-control">
 									@if($errors->has('password_confirmation'))
-										<span>{{ $errors->first('password_confirmation') }}</span>
+										<span class="error-message">{{ $errors->first('password_confirmation') }}</span>
 									@endif
 								</div>
 
